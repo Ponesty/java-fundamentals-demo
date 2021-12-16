@@ -3,25 +3,25 @@ import java.util.List;
 
 public class Droid {
     String serial, type, purpose;
-    List<String> tools = new ArrayList<>();
+    List<Tool> tools = new ArrayList<Tool>();
 
-    public Droid(String serial, String type, String purpose, List<String> tools) {
+    public Droid(String serial, String type, String purpose, ArrayList<Tool> tool) {
         this.serial = serial;
         this.type = type;
         this.purpose = purpose;
-        this.tools = tools;
+        this.tools = tool;
     }
 
     public String getSerial() {
-        return serial;
+        return this.serial;
     }
 
     public String getType() {
-        return type;
+        return this.type;
     }
 
     public String getPurpose() {
-        return purpose;
+        return this.purpose;
     }
 
     public void setSerial(String newSerial){
@@ -39,6 +39,29 @@ public class Droid {
     public String speak() {
         return "Beepboopbop";
     }
+
+    public List<ToolType> getTools(){
+        List<ToolType> toolTypes = new ArrayList<>();
+        for (Tool tool: this.tools) {
+            toolTypes.add(tool.toolType);
+        }
+        return toolTypes;
+    }
+
+    public void setTools(Tool tool){
+        tools.add(tool);
+    }
+
+    public void repairStarShip(){
+        for (Tool tool: this.tools) {
+            if(tool.toolType == ToolType.STARSHIP_REPAIR && tool.durability > 0){
+                tool.durability --;
+                System.out.println("Starship repaired");
+                break;
+            }
+        }
+    }
+
 
     @Override
     public String toString(){
