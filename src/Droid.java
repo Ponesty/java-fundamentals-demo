@@ -43,7 +43,7 @@ public class Droid {
     public List<ToolType> getTools(){
         List<ToolType> toolTypes = new ArrayList<>();
         for (Tool tool: this.tools) {
-            toolTypes.add(tool.toolType);
+            toolTypes.add(tool.getToolType());
         }
         return toolTypes;
     }
@@ -53,13 +53,21 @@ public class Droid {
     }
 
     public void repairStarShip(){
-        for (Tool tool: this.tools) {
-            if(tool.toolType == ToolType.STARSHIP_REPAIR && tool.durability > 0){
-                tool.durability --;
-                System.out.println("Starship repaired");
+        int i =0;
+        while(i< this.tools.size()){
+            if(this.tools.get(this.tools.size()-1).getDurability() == 0){
+                System.out.println("Cannot repair starship.");
                 break;
             }
+            else if(this.tools.get(i).getToolType() == ToolType.STARSHIP_REPAIR && this.tools.get(i).getDurability() > 0){
+                System.out.println("Starship repaired.");
+                this.tools.get(i).setDurability(this.tools.get(i).getDurability()-1);
+                i = this.tools.size();
+            } else{
+                i++;
+            }
         }
+
     }
 
 
