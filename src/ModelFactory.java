@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModelFactory {
-    public static Map<Integer, String> droidModels;
+    final public static Map<Integer, String> droidModels;
     static{
         droidModels = new HashMap<>();
         droidModels.put(1,"Astromech");

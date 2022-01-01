@@ -1,3 +1,3 @@
 enum ToolType {
-    STARSHIP_REPAIR
+    STARSHIP_REPAIR, RIFLES
 }

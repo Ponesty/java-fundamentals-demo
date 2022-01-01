@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Droid {
-    String serial, type, purpose;
+abstract class Droid {
+    final String serial;
+    String type, purpose;
     List<Tool> tools = new ArrayList<Tool>();
 
-    public Droid(String serial, String type, String purpose, ArrayList<Tool> tool) {
+    public Droid(String serial, final String type, String purpose, final ArrayList<Tool> tool) {
         this.serial = serial;
         this.type = type;
         this.purpose = purpose;
@@ -22,10 +23,6 @@ public class Droid {
 
     public String getPurpose() {
         return this.purpose;
-    }
-
-    public void setSerial(String newSerial){
-        this.serial = newSerial;
     }
 
     public void setType(String newType) {
@@ -52,7 +49,7 @@ public class Droid {
         tools.add(tool);
     }
 
-    public void repairStarShip(){
+   /* public void repairStarShip(){
         int i =0;
         while(i< this.tools.size()){
             if(this.tools.get(this.tools.size()-1).getDurability() == 0){
@@ -61,14 +58,14 @@ public class Droid {
             }
             else if(this.tools.get(i).getToolType() == ToolType.STARSHIP_REPAIR && this.tools.get(i).getDurability() > 0){
                 System.out.println("Starship repaired.");
-                this.tools.get(i).setDurability(this.tools.get(i).getDurability()-1);
+                this.tools.get(i).useTool();
                 i = this.tools.size();
             } else{
                 i++;
             }
         }
 
-    }
+    }*/
 
 
     @Override

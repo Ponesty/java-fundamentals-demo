@@ -1,5 +1,5 @@
 public class Tool {
-    private ToolType toolType;
+    private final ToolType toolType;
     private int durability;
     public Tool(ToolType toolType){
         this.toolType = toolType;
@@ -9,8 +9,8 @@ public class Tool {
     public int getDurability(){
         return this.durability;
     }
-    public void setDurability(int durability){
-        this.durability = durability;
+    public void useTool(){
+        this.durability--;
     }
     public ToolType getToolType(){
         return this.toolType;
