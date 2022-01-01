@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Droid {
+abstract class Droid{
     final String serial;
     String type, purpose;
     List<Tool> tools = new ArrayList<Tool>();

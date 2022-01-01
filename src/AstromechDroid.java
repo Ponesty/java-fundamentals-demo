@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class AstromechDroid extends Droid{
+public class AstromechDroid extends Droid implements Defender{
     public AstromechDroid(String serial, String type, String purpose, ArrayList<Tool> tool) {
         super(serial, type, purpose, tool);
     }
@@ -21,5 +21,10 @@ public class AstromechDroid extends Droid{
             }
         }
 
+    }
+
+    @Override
+    public void defend() {
+        System.out.println("Droid shocked the enemy");
     }
 }

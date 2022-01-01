@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class BattleDroid extends Droid {
+public class BattleDroid extends Droid implements Defender{
     public BattleDroid(String serial, String type, String purpose, ArrayList<Tool> tool) {
         super(serial, type, purpose, tool);
     }
@@ -20,5 +20,10 @@ public class BattleDroid extends Droid {
             }
         }
 
+    }
+
+    @Override
+    public void defend() {
+        shootEnemy();
     }
 }
